@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html class="no-js">
-
 <head>
     <title>Ovik POC</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" title="RSD" href="https://rawgit.com/dc-js/dc.js/master/web/css/dc.css"/>
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/dc-js/dc.js/master/web/css/dc.css"/>
    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://rawgit.com/KidSysco/jquery-ui-month-picker/master/src/MonthPicker.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 <style>
 title {
@@ -48,6 +46,7 @@ h4{
 .chart_box h3{
 	font-size: 1.1em;
 }
+/*Styling for more info for charts*/
 .info_chart{
 	position: absolute;
 	top: -38px;
@@ -97,6 +96,7 @@ p.desc{
 	font-weight: normal;
 	font-size: .875em;
 }
+/*Styling for chart tooltips*/
     /* testing out d3 tooltip */
     .d3-tip {
       line-height: 1;
@@ -143,7 +143,7 @@ p.desc{
 
  
    body{font-family: Arial;}
- 
+
    .container{
     width:150px;height:150px;
    
@@ -204,7 +204,7 @@ body {
 margin: 0 auto;
 
 }
-
+   /*Styling for drop-down filters*/
 .dropdown {
   position: relative;
   
@@ -392,7 +392,7 @@ a {
   top: 2px;
   width: 235px;
   list-style: none;
-  height: 230px;
+  height: 300px;
   overflow: auto;
   font-size: 11px;
   z-index:99;
@@ -446,6 +446,7 @@ select{
     border-style: solid;
     border-color: black;
 }
+   /*Styling for buttons*/
 button {
   background-color: #F5F5F5;
   width: 80px;
@@ -559,6 +560,7 @@ z-index: 999;
 	.btn1:hover{
 		background: rgba(0, 0, 0,.4) url(https://rawgit.com/tttp/iw-fr/master/img/reset.svg) center 7% no-repeat;
 	}
+   /*Styling for the loading animation*/
 .fond{background-color: white;position:absolute;padding-top:400px;top:0;left:0; right:0;bottom:0;z-index:1999;  width: 100%;
   height: 500%;}
 
@@ -659,7 +661,7 @@ z-index: 999;
   100%{transform:rotate(720deg) scale(1);}
 }
 
-}
+   /*Styling for the navigation bar*/
 
 .fa-2x {
 font-size: 2em;
@@ -813,7 +815,7 @@ height: 100%;
   font-weight: 300;
   
 }
-    
+   /*Styling for the navigation drop-down*/
 h3 {
    font-size: large;
 }
@@ -961,17 +963,17 @@ color: white;
 function myFunction(x) {
     x.classList.toggle("change");
 }
-	//paste this code under head tag or in a seperate js file.
 	// Wait for window load
 	setTimeout(function() {
     $('.fond').fadeOut('slow');
 }, 3010);
 </script>
 
+
 </head>
 <body>
 <!-- The following generates a loading animation that will end when all the charts finish loading.-->
-<div align="center" class="fond"style="width:100%; height:200%;">
+<div align="center" class="fond"style:"width:100%; height:200%;">
 <div id="fort"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png"></div>
   <div class="contener_general">
       <div class="contener_mixte"><div class="ballcolor ball_1">&nbsp;</div></div>
@@ -985,10 +987,11 @@ function myFunction(x) {
           </div>
 </div>
 
+
 <div id="scrollable" class= "scrollable" style="padding-left:0px;">
 <div>
 <!-- The following div elements generate the FIA logo and navigation to other dashboards.-->
-<div class="navbar-left" style=" vertical-align: top;display:inline-block;padding-left:90px;"><a  href="http://www.fia.org/" style= "border-bottom:none; margin-top:0px;"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png" style="max-height:60px;margin-top:0px;"></a></div>
+<div class="navbar-left" style=" vertical-align: top;display:inline-block;padding-left:105px;"><a  href="http://www.fia.org/" style= "border-bottom:none; margin-top:0px;"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png" style="max-height:60px;margin-top:0px;"></a></div>
 <div style="display:inline-block; vertical-align: top; padding-left:700px; padding-top:13px; position: relative">
 <div id="654" class="container1">
   <div class="bar1"></div>
@@ -1095,17 +1098,17 @@ function myFunction(x) {
 
 </div>
 </div>
-<h1 style="padding-left:90px;">Global Overview in September</h1>
+<h1 style="padding-left:105px;">Global Overview in September</h1>
 <div id="6" style="display:inline-block; padding: 0px;"></div>
 <div id="scrollable" class= "scrollable" style="padding-left:80px;">
 
-<div style="display:inline-block; padding-left: 10px;">
+<div style="display:inline-block; padding-left: 25px;">
 <!--
 	<button id="one" class="button2">1M</button>
 	<button id="three" class="button2">3M</button>
 	<button id="six" class="button2">6M</button>
 -->
-<!-- The following is the preset filter date options.-->
+    <!-- The following is the preset filter date options.-->
 	<button id="YearTo" class="button3">YTD</button>
 	<button id="oneYear" class="button2">1Y</button>
 	<button id="twoYear" class="button2">2Y</button>
@@ -1114,37 +1117,36 @@ function myFunction(x) {
 	<button id="tenYear" class="button2">10Y</button>
 	<button id="All" class="button3">All</button>
 	<button id="Custom" class="button4">Custom</button>
-<!-- The following is the filter for Volume and OI. It will re-render all charts based on Volume and OI once the Apply button is clicked.-->
-<div style="margin-left: 20px; vertical-align:top; display:inline-block;">
-	<div id="download-type1" style="clear: both;">
-      <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
-      <div><label><input type=radio name="operation1" value="open">&nbsp;Open Interest</label></div>
-    	</div>
-
+<div style="display:inline-block;  margin-left: 150px;" class="dropdown9">
+    <!-- The following highlights the selection of exchange filter.-->
+    <dt>
+    <a href="#/">
+         
+      <p style="font-size:150%;" class="multiSel3"></p>  
+    </a>
+    </dt>
+  
 </div>
-<div style="display:inline-block; padding-left: 10px;"><button id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
-
 </div>
 
 
 <div>
 <!-- The following is the custom filter date options.-->
-<div id="hid" style="visibility:hidden; float:left; padding-left: 20px; padding-top: 0px;">
+<div id="hid" style="visibility:hidden; float:left; padding-left: 35px; padding-top: 10px;">
 <div style="display:inline-block;">
 <label style="margin-bottom:0;" for="from">From</label>
 <input type="text" id="from" name="from">
 <label style="margin-bottom:0;" for="to">to</label>
 <input type="text" id="to" name="to">
 
-
 </div>
 <div style="display:inline-block; padding-left: 10px;">
 <button style="{background-color: #f6f6f6;border: 1px solid black;}" id="perform">Perform</button>
 </div>
 </div>
-<!-- The following is the filter for Exchange, Country, and Category. Multiple elements can be selected and filtered using the Apply button.-->
+<!-- The following is the filter for Exchange and Category. Both single and multiple elements can be selected and filtered using the Apply button.-->
 <div style="float:left; padding-left: 10px; width: 1300px; padding-top: 10px;">
-<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown1">
+<div style="display:inline-block; vertical-align: top; padding-left: 15px;" class="dropdown1">
   
     <dt>
     <a href="#/">
@@ -1157,14 +1159,14 @@ function myFunction(x) {
         <div id="menu1select"></div>
     </dd>
 </div>
-<div style="display:inline-block; position:absolute; padding-left: 0px;">
+<div style="display:inline-block; position:absolute; padding-left: 10px;">
 <button id="perform10" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
 </div>
 <div style="display:inline-block; vertical-align: top; margin-left: 120px;" class="dropdown">
   
     <dt>
     <a href="#/">
-      <span class="caret">Select Country</span>
+      <span class="caret">Select Category</span>
       <p class="multiSel"></p>
     </a>
     </dt>
@@ -1173,46 +1175,23 @@ function myFunction(x) {
         <div id="meniselect"></div>
     </dd>
 </div>
-<div style="display:inline-block; position:absolute; padding-left: 5px;">
+<div style="display:inline-block; position:absolute; padding-left: 10px;">
 <button id="perform1" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
 </div>
-<div style="display:inline-block; vertical-align: top; margin-left: 120px;" class="dropdown2"> 
-  
-    <dt>
-    <a href="#/">
-      <span class="caret">Select Category</span>
-      <p class="multiSel2"></p>  
-    </a>
-    </dt>
-  
-    <dd>
-        <div id="menu3select"></div>
-    </dd>
-</div>
-<div style="display:inline-block; position:absolute; padding-left: 5px;">
-<button id="perform11" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
-</div>
-</div>
 
-
-<div id = "das">
-<div class="col-md-3 chart_box" style="float: left; margin-left:auto; margin-right:auto; padding-top: 30px; width: 1400px">
-<div class="col-md-3 chart_box" style="float: left; width:1100px; height:450px;">
-		<h4 id="header2">Volume by Month-Year</h4>
+<div id = "123">
+<div class="clearfix" style="padding-top: 10px"></div>
+<div style="float: left; width:1400px;">
+<div class="col-md-3 chart_box" style="float: left; width:1100px; ">
+		<h4 id="header2">Volume and Open Interest by Month-Year</h4>
 		<div class="info_chart" >
 			<span class="info">info</span>
 			<p class="desc" style="display: none;">The area chart below shows the Volume/Open Interest distribution by Month-Year. CLick on the chart to select the time range for the data filter. After selecting the time range filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
 		</div>
-    <!-- The following is the Month-Year chart.-->
-  <div id="month_chart"></div>
+    <!-- The following is the Volume by Month-Year chart.-->
+  <div id="volume-month-chart"></div>
 
-  <div id="overall_chart">
-    <div class="reset" style="visibility: hidden;">range: <span class="filter"></span>
-      <a href="javascript:overall_chart.filterAll();dc.redrawAll();">reset</a>
-    </div>
 </div>
-
-  </div>
 <div style="float: left; position:relative;padding-left:40px;padding-top:50px;">
     <!-- The following is the reset all filters button.-->
     <button class="bu20" id="render1"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/reset.svg"><br><br>Reset All</br></br></button>
@@ -1225,130 +1204,120 @@ function myFunction(x) {
       <div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
     <button class="bu20" onclick="exportImage();"><img src="https://fia.org/sites/default/files/SEFTic_insert_photo_black_24dp_2x.png">Download SVG</button> -->
 </div>
-    </div>
-
-
-
-
-<div class="col-md-3 chart_box" style="float: left;  margin-left:auto; margin-right:auto; padding-top: 80px; padding-left: 0px;width: 1300px">
-	<div style="float: left; padding-top: 0px; padding-left:0px;">
-	<div class="col-md-6 chart_box map_container" style="float: left; width:800px; height:500px;padding-left:50px;">
-
-		<h4 id="header4">Volume by Country</h4>
-		<div class="info_chart">
-			<span class="info">info</span>
-			<p class="desc" style="display: none;">The  chloropleth map below shows the Volume/Open Interest distribution by Country. CLick on the chart to select the countries to filter the data. After selecting the country filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
-		</div>
-        <!-- The following is the Country chart.-->
-		<div id="country_chart">
-
-        <a class="reset" href="javascript:country_chart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
 </div>
-	</div>
-</div>
-<div class="col-md-3 chart_box" style="float: left; width:400px; height:350px; padding-left: 10px; padding-top: 0px">
+<div style="float: left; margin-left:auto; margin-right:auto; width: 1100px; padding-top: 10px">	
+<div class="col-md-3 chart_box" style="width:500px; height:250px; padding-left: 100px; padding-top: 0px">
 		<h4 id="header6">Volume by Instrument Type</h4>
 		<div class="info_chart" >
 			<span class="info">info</span>
 			<p class="desc" style="display: none;">The row chart below shows the Volume/Open Interest distribution by Instrument Type. CLick on the chart to select the instrument types to filter the data. After selecting the intrument type filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
 		</div>
-    <!-- The following is the Instrument Type chart.-->
-<div id="instr_chart">
+    <!-- The following is the Volume by Instrument Type chart.-->
+<div id="volume-instr-chart">
     <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
-      <a href="javascript:instr_chart.filterAll();dc.redrawAll();">reset</a>
+      <a href="javascript:volume_instr_chart.filterAll();dc.redrawAll();">reset</a>
     </div>
 </div>
 </div>
+
+<div class="col-md-3 chart_box" style="width:500px; height:250px; padding-left: 200px; padding-top: 0px">
+		<h4 id="header6">Volume by Exchange</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Exchange. CLick on the chart to select the exchanges to filter the data. After selecting the exchange filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+    <!-- The following is the Volume by Exchange chart.-->
+<div id="volume-exchange-chart" style="display: inline-block;padding-left:10px;">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:volume_exchange_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
 </div>
+</div>
+	
+</div>
+<div style="float:left; width: 1100px; padding-top: 150px">
+<div class="col-md-3 chart_box" style="width:1100px; ">
+<h4 id="header2">Volume and Open Interest by Month-Year</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The area chart below shows the Volume/Open Interest distribution by Month-Year. CLick on the chart to select the time range for the data filter. After selecting the time range filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+    <!-- The following is the OI by Month-Year chart.-->
+  <div  id="OI-month-chart"></div>
+</div>
+</div>
+<div style="float: left; margin-left:auto; margin-right:auto; width: 1100px; padding-top: 10px">
 
-
-
-<div class="col-md-3 chart_box" style="float: left; margin-left:auto; margin-right:auto; padding-left:50px; width: 1200px">
-<div class="col-md-3 chart_box" style="float: left;width:400px; height:700px; padding-left: 0px; padding-top: 0px;">
-<h4 id="header7">Top 20 Contracts by Volume</h4>
+<div class="col-md-3 chart_box" style="width:500px; height:250px; padding-left: 100px; padding-top: 0px">
+		<h4 id="header6">OI by Instrument Type</h4>
 		<div class="info_chart" >
 			<span class="info">info</span>
 			<p class="desc" style="display: none;">The row chart below shows the Volume/Open Interest distribution by Instrument Type. CLick on the chart to select the instrument types to filter the data. After selecting the intrument type filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
 		</div>
-    <!-- The following is the Contracts chart.-->
-      <div id="contracts_chart">
-<div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
-      <a href="javascript:contracts_chart.filterAll();dc.redrawAll();">reset</a>
-    </div></div></div>
-<div class="col-md-3 chart_box" style="float: left; margin-left:auto; margin-right:auto; padding-left: 0px; width: 700px;">
-<div class="col-md-3 chart_box" style="margin-left:auto; margin-right:auto; padding-left: 0px; width: 1000px;">
-<div class="col-md-3 chart_box" style="float: left; width:350px; height:350px;">
-		<h4 id="header3">Volume by Region</h4>
+    <!-- The following is the OI by Instrument Type chart.-->
+<div id="OI-instr-chart">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:OI_instr_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+</div>
+</div>
+
+<div class="col-md-3 chart_box"  style="width:500px; height:270px; padding-left: 200px">
+		<h4 id="header7">OI by Exchange</h4>
 		<div class="info_chart" >
 			<span class="info">info</span>
-			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Region. CLick on the chart to select the regions to filter the data. After selecting the region filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Exchange. CLick on the chart to select the exchanges to filter the data. After selecting the exchange filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
 		</div>
-    <!-- The following is the Region chart.-->
-  <div id="region_chart">
+    <!-- The following is the OI by Exchange chart.-->
+  <div id="OI-exchange-chart">
     <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
-      <a href="javascript:region_chart.filterAll();dc.redrawAll();">reset</a>
+      <a href="javascript:OI_exchange_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+</div>
+</div>
+  </div>
+<div style="float:left; width: 1100px; padding-top: 150px">
+<div class="col-md-3 chart_box" style="width:1100px; ">
+<h4 id="header2">Volume and Open Interest by Month-Year</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The area chart below shows the Volume/Open Interest distribution by Month-Year. CLick on the chart to select the time range for the data filter. After selecting the time range filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+    <!-- The following is the overall Month-Year chart.-->
+  <div id="month-chart">
+    <div class="reset" style="visibility: hidden;">range: <span class="filter"></span>
+      <a href="javascript:month_chart.filterAll();dc.redrawAll();">reset</a>
     </div>
   </div>
 </div>
-<div class="col-md-3 chart_box" style="float: left; width:350px; height:350px; padding-left:50px;">
-		<h4 id="header5">Volume by Exchange</h4>
-		<div class="info_chart" >
-			<span class="info">info</span>
-			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Parent Companies. CLick on the chart to select the Parent Companies to filter the data. After selecting the parent filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
-		</div>
-    <!-- The following is the Exchange chart.-->
-  <div id="exch_chart">
-    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
-      <a href="javascript:exch_chart.filterAll();dc.redrawAll();">reset</a>
-    </div>
 </div>
-</div>
-</div>
-<div class="col-md-3 chart_box" style="margin-left:auto; margin-right:auto; padding-top: 50px; width: 1000px;">
-<div class="col-md-3 chart_box" style="float: left; width:350px; height:350px; padding-top: 0px; padding-left: 0px">
-		<h4 id="header7">Volume by Category</h4>
-		<div class="info_chart" >
-			<span class="info">info</span>
-			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Exchange. CLick on the chart to select the exchanges to filter the data. After selecting the exchange filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
-		</div>
-    <!-- The following is the Category chart.-->
-  <div id="category_chart">
-    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
-      <a href="javascript:category_chart.filterAll();dc.redrawAll();">reset</a>
-    </div>
-</div>
-</div>
-<div class="col-md-3 chart_box"  style="float: left; width:350px; height:350px; padding-left:50px; padding-top: 0px;">
-		<h4 id="header8">Volume by Subcategory</h4>
-		<div class="info_chart" >
-			<span class="info">info</span>
-			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Exchange. CLick on the chart to select the exchanges to filter the data. After selecting the exchange filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
-		</div>
-    <!-- The following is the Subcategory chart.-->
-<div id="subcategory_chart">
-    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
-      <a href="javascript:subcategory_chart.filterAll();dc.redrawAll();">reset</a>
-    </div>
-</div>
-    </div>
-</div>
-</div>
-
+<div class="clearfix"></div>
+  </div>
+<div class="clearfix"></div>
+<div style="display:inline-block; padding: 10px;">
 
 </div>
-</div>
+<div class="clearfix"></div>
+        
+    </div>
+<div class="clearfix"></div>
 
+
+
+<div class="clearfix"></div>
+  
+<div class="clearfix"></div>
+    <div class="row">
+    <div class="col-xs-12">
+<div style="clear: both; margin: 25px; float:left; padding-top:60px;">
+      
+
+    </div>
 </div>
 </div>
 </div>
-</body>
-<script type="text/javascript" src="https://rawgit.com/tsayen/dom-to-image/master/src/dom-to-image.js"></script>
-<script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script>
-<script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script> 
-<script type="text/javascript" src="http://canvg.github.io/canvg/StackBlur.js"></script>
-<script type="text/javascript" src="http://canvg.github.io/canvg/canvg.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+</div>
+</div>
 <script type="text/javascript" src="https://rawgit.com/dc-js/dc.js/master/web/js/d3.js"></script>
 <script type="text/javascript" src="https://rawgit.com/dc-js/dc.js/master/web/js/crossfilter.js"></script>
 <script type="text/javascript" src="https://rawgit.com/dc-js/dc.js/develop/dc.js"></script>
@@ -1358,5 +1327,6 @@ function myFunction(x) {
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.0/css/jquery.dataTables.min.css"/>
 <script src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
 <script src="https://rawgit.com/KidSysco/jquery-ui-month-picker/master/src/MonthPicker.js"></script>
-<script type="text/javascript" src="ener12345.js"></script>
+<script type="text/javascript" src="Lookup.js"></script>
+</body>
 </html>
