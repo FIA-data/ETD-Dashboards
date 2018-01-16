@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/dc.css"/>
+   <link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery-ui.css">
+
+  <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.min.js"></script>
+  <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+<link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/font-awesome.min.css">
+  </head>
+<style>
+.dc-chart path.area {
+fill-opacity: 1;
+stroke: none;
+}
+.dc-chart path.area.highlight {
+fill-opacity: .3;
+stroke-width: 3;
+stoke-opacity: 1;
+}
+table.dataTable tr.odd { background-color: #A8DEF5; }
+table.dataTable tr.even { background-color: white; }
+.fa-2x {
+font-size: 2em;
+}
+.fa {
+position: relative;
+display: table-cell;
+width: 60px;
+height: 36px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
+}
+
+.scrollable2 {
+ margin: 0px auto; width: 1300px;
+}
+
+.main-menu:hover,nav.main-menu.expanded {
+width:220px;
+overflow:visible;
+}
+
+
+
+.main-menu {
+background:	#F5F5F5;
+border-top:1px solid #000000;
+border-left:1px solid #000000;
+border-right:1px solid #000000;
+border-bottom:1px solid #000000;
+position:fixed;
+top:0;
+bottom:0;
+height:187px;
+left:0;
+width:50px;
+overflow:hidden;
+-webkit-transition:width .05s linear;
+transition:width .05s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+z-index:10;
+}
+
+.main-menu>ul {
+margin:0px 0;
+position:absolute;
+}
+
+.main-menu>ul li ul{
+display:none;
+position: absolute;
+margin:7px 0;
+background:black;
+
+    list-style-type:none;
+    width:220px;
+    padding:0px;
+    margin-top:-38px;
+    margin-left:220px;
+    color:#999;
+}
+
+
+.main-menu li {
+position:relative;
+display:block;
+width:220px;
+}
+
+.main-menu li:hover ul {
+display:block;
+}
+
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#000;
+background:#F5F5F5;
+border:1px solid #000000;
+font-family: Arial;
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition:all .1s linear;
+  
+}
+
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:60px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
+}
+
+.main-menu .nav-text {
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+  font-family: Arial;
+}
+
+.main-menu>ul.logout {
+position:absolute;
+left:0;
+bottom:0;
+}
+
+.no-touch .scrollable.hover {
+overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
+}
+
+a:hover,a:focus {
+text-decoration:none;
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+}
+
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color:#fff;
+background-color:#44C8F5;
+}
+.area {
+float: left;
+background: #e2e2e2;
+width: 100%;
+height: 100%;
+}
+@font-face {
+  font-family: Arial; font-size:13px;
+  font-style: normal;
+  font-weight: 300;
+  
+}
+body {
+ font-family: Arial; font-size:13px;
+margin: 0 auto;
+
+}
+
+.dropdown {
+  position: relative;
+  
+}
+
+a {
+  color: #000;
+}
+
+.dropdown dd,
+.dropdown dt {
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+
+.dropdown ul {
+  margin: -1px 0 0 0;
+  
+ }
+
+
+.dropdown dd {
+  position: relative;
+
+}
+
+
+.dropdown a,
+.dropdown a:visited {
+  color:#000;
+  text-decoration: none;
+  outline: none;
+  font-size: 13px;
+}
+
+.dropdown dt a {
+  background-color: #fff;
+  display: block;
+  padding: 8px 20px 5px 10px;
+  height: 38px;
+  min-height: 10px;
+  line-height: 8px;
+  overflow: hidden;
+  border: 1px solid black;
+  width: 200px;
+text-align: center;
+}
+
+
+.dropdown dt a span,
+.multiSel span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 3px 2px 0;
+  
+}
+
+
+.dropdown dd ul {
+  background-color: #fff;
+  border: 1px solid black;
+  color: #fff;
+  display: none;
+  left: 0px;
+  padding: 2px 15px 2px 5px;
+  position: absolute;
+  top: 2px;
+  width: 284px;
+  list-style: none;
+  height: 150px;
+  overflow: auto;
+  font-size: 13px;
+  z-index:99;
+}
+
+.dropdown span.value {
+  display: none;
+}
+
+
+.dropdown dd ul li {
+  padding: 5px;
+  display: block;
+  color:#000;
+}
+
+dd ul li input {
+vertical-align: middle;
+}
+
+dd ul li b {
+vertical-align: middle;
+padding-left:2px;
+}
+.dropdown dd ul li:hover {
+  background-color: #DCDCDC;
+}
+
+select{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.right1 { text-align: right; }
+
+button {
+  background-color: #F5F5F5;
+  width: 80px;
+  height:39px;
+  border: 1px solid black;
+  padding: 10px 0;
+  text-align: top;
+  color: black;
+  font-weight: bold;
+border-radius: 5px;
+}
+button:hover {background-color: #44C8F5}
+.fond{background-color: white;position:absolute;padding-top:400px;top:0;left:0; right:0;bottom:0;z-index:1999;  width: 100%;
+  height: 500%;}
+
+.contener_general
+{
+  -webkit-animation:animball_two 1s infinite;
+  -moz-animation:animball_two 1s infinite;
+  -ms-animation:animball_two 1s infinite;
+  animation:animball_two 1s infinite;
+  width:44px; height:44px;
+}
+.contener_mixte
+{
+  width:44px; height:44px; position:absolute;
+}
+.ballcolor
+{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.ball_1, .ball_2, .ball_3, .ball_4
+{
+  position: absolute;
+  -webkit-animation:animball_one 1s infinite ease;
+  -moz-animation:animball_one 1s infinite ease;
+  -ms-animation:animball_one 1s infinite ease;
+  animation:animball_one 1s infinite ease;
+}
+.ball_1
+{
+  background-color:#44C8F5;
+  top:0; left:0;
+}
+.ball_2
+{
+  background-color:#F68928;
+  top:0; left:24px;
+}
+.ball_3
+{
+  background-color:#85C441;
+  top:24px; left:0;
+}
+.ball_4
+{
+  background-color:#FFCD00;
+  top:24px; left:24px;
+}
+
+@-webkit-keyframes animball_one
+{
+  0%{ position: absolute;}
+  50%{top:12px; left:12px; position: absolute;opacity:0.5;}
+  100%{ position: absolute;}
+}
+@-moz-keyframes animball_one
+{
+  0%{ position: absolute;}
+  50%{top:12px; left:12px; position: absolute;opacity:0.5;}
+  100%{ position: absolute;}
+}
+@-ms-keyframes animball_one
+{
+  0%{ position: absolute;}
+  50%{top:12px; left:12px; position: absolute;opacity:0.5;}
+  100%{ position: absolute;}
+}
+@keyframes animball_one
+{
+  0%{ position: absolute;}
+  50%{top:12px; left:12px; position: absolute;opacity:0.5;}
+  100%{ position: absolute;}
+}
+
+@-webkit-keyframes animball_two
+{
+  0%{-webkit-transform:rotate(0deg) scale(1);}
+  50%{-webkit-transform:rotate(360deg) scale(1.3);}
+  100%{-webkit-transform:rotate(720deg) scale(1);}
+}
+@-moz-keyframes animball_two
+{
+  0%{-moz-transform:rotate(0deg) scale(1);}
+  50%{-moz-transform:rotate(360deg) scale(1.3);}
+  100%{-moz-transform:rotate(720deg) scale(1);}
+}
+@-ms-keyframes animball_two
+{
+  0%{-ms-transform:rotate(0deg) scale(1);}
+  50%{-ms-transform:rotate(360deg) scale(1.3);}
+  100%{-ms-transform:rotate(720deg) scale(1);}
+}
+@keyframes animball_two
+{
+  0%{transform:rotate(0deg) scale(1);}
+  50%{transform:rotate(360deg) scale(1.3);}
+  100%{transform:rotate(720deg) scale(1);}
+}
+
+.bu20 {
+    border: 1px solid grey;
+    background-color: #f6f6f6;
+    width: 70px;
+    height: 70px;
+    position: relative;    
+    font-weight: bold;
+    color: black;
+    font-size: 12px;
+    text-align: center; 
+    line-height: 100%; 
+     display: block; 
+}
+.bu20:hover {background-color: #c7c7c7}
+
+.bu20:active {
+  background-color: #c7c7c7;
+  
+  transform: translateY(8px);
+}
+.caret:hover:before {
+  border-top-color: #222;
+}
+.caret {
+  position: relative;
+  cursor: pointer;
+}
+.caret:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  border-top: 5px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.caret:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  border-top: 5px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.container1 ul { 
+  position: absolute;
+  top: 54px;
+  left: 525px; /* move content -4px because of container left border */
+  width:220px;
+  padding: 0px 0px;
+background:	#F5F5F5;
+border-right:1px solid #000000	;
+border-bottom:1px solid #000000	;
+  display: none;
+
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.container1 ul li { font-size: 0.9em; }
+
+.container1 li:hover ul {
+display:block;
+
+}
+
+.container1 ul li { 
+position:relative;
+
+width:220px;
+  text-decoration: none;
+  display: block;
+  
+}
+
+
+.container1 .nav-text {
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+  font-family:Arial;
+}
+
+.container1 li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#000;
+background:#F5F5F5;
+border:1px solid #000000;
+font-family: Arial;
+width:218px;
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition:all .1s linear;
+  
+}
+
+.container1 ul li ul {
+display:none;
+position: absolute;
+margin:7px 0;
+background:#F5F5F5;
+
+    list-style-type:none;
+    width:220px;
+    padding:0px;
+    margin-top:-54px;
+    margin-left:-745px;
+    color:#999;
+
+}
+
+.container1 li>a:hover {
+background-color:#44C8F5;
+color: white;  
+}
+
+.container1 {
+    display: inline-block;
+    cursor: pointer;
+
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+</style>
+<script>
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+	//paste this code under head tag or in a seperate js file.
+	// Wait for window load
+	setTimeout(function() {
+    $('.fond').fadeOut('slow');
+}, 3010);
+</script>
+  <body>
+  <!-- The following generates a loading animation that will end when all the charts finish loading.-->
+  <div align="center" class="fond" style:"width:100%; height:200%;">
+<div id="fort"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png"></div>
+  <div class="contener_general">
+      <div class="contener_mixte"><div class="ballcolor ball_1">&nbsp;</div></div>
+      <div class="contener_mixte"><div class="ballcolor ball_2">&nbsp;</div></div>
+      <div class="contener_mixte"><div class="ballcolor ball_3">&nbsp;</div></div>
+      <div class="contener_mixte"><div class="ballcolor ball_4">&nbsp;</div></div>
+  </div>
+  
+  <div style="padding-top:35px;">
+  <div style=" color:#99999; font-weight:300; font-size:30px; font-family:'Arial';padding-top:10px;"><font style="font-weight:400;">Loading..</font></div>
+          </div>
+</div>
+
+<div class= "scrollable2" style= "padding-left: 0px;">
+<div>
+<!-- The following div elements generate the FIA logo and navigation to other dashboards.-->
+<div class="navbar-left" style=" vertical-align: top;display:inline-block;padding-left:0px;"><a  href="http://www.fia.org/" style="border-bottom:none; margin-top:0px;"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png" style="max-height:60px;margin-top:0px;"></a></div>
+<div style="display:inline-block; vertical-align: top; padding-left:700px; padding-top:13px; position: relative">
+<div id="654" class="container1">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+<ul class="dropdown-menu multi-level" style="display:none ">
+      <li>
+                    <a href="https://fia.org/categories/exchange-volume/">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Home
+                        </span>
+                    </a>
+
+                </li>
+                 <li>
+                   <a href="https://fia.org/global-overview">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        <span class="nav-text">
+                            Global Monthly Overview
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fa fa-area-chart" aria-hidden="true"></i>
+                        <span class="nav-text">
+                            Monthly Trends
+                        </span>
+                    </a>
+                              <ul>
+                <li class="has-subnav">
+                    <a href="https://fia.org/contract-type-dashboard">
+                        <i class="fa"></i>
+                        <span class="nav-text">
+                            Contract Type Dashboard
+                        </span>
+                    </a>
+          
+                </li>
+                <li class="has-subnav">
+                    <a href="https://fia.org/group-dashboard">
+                        <i class="fa"></i>
+                        <span class="nav-text">
+                            Group Dashboard
+                        </span>
+                    </a>
+          
+                </li>
+                <li class="has-subnav">
+                    <a href="https://fia.org/region-dashboard">
+                        <i class="fa"></i>
+                        <span class="nav-text">
+                            Region Dashboard
+                        </span>
+                    </a>
+          
+                </li>
+                
+		</ul>
+                </li>
+                
+                               
+                
+                <li>
+                   <a href="#">
+                       <i class="fa fa-table fa-2x"></i>
+                        <span class="nav-text">
+                            Monthly Tables
+                        </span>
+                    </a>
+                              <ul>
+                <li class="has-subnav">
+                    <a href="https://fia.org/contract-table">
+                        <i class="fa"></i>
+                        <span class="nav-text">
+                            Contract Table
+                        </span>
+                    </a>
+          
+                </li>
+                <li class="has-subnav">
+                    <a href="https://fia.org/exchange-table">
+                        <i class="fa"></i>
+                        <span class="nav-text">
+                            Exchange Table
+                        </span>
+                    </a>
+          
+                </li>
+                </ul>
+                 </li>
+                
+                <li>
+                    <a href="#">
+                       <i class="fa fa-info fa-2x"></i>
+                        <span class="nav-text">
+                            Documentation
+                        </span>
+                    </a>
+                </li>
+            </ul>
+</div>
+
+</div>
+</div>
+<div id = "123">
+<div class="clearfix"></div>
+  </div>
+<div class="clearfix"></div>
+
+  
+<div class="clearfix"></div>
+    <!-- The following is the Contract Type table. -->
+<h1 style= "padding-left:0px;">September Highlights by Contract Type</h1>
+    <div class="row">
+    <div class="col-xs-12">
+<div style="clear: both; margin: 0px; float: left; padding-top:10px;">
+      <table class="table table-bordered table-striped table-hover" id="table" cellspacing="0" width="1100px">
+        <thead class="thead-inverse">
+	  <tr class="header" center style="background-color: #44C8F5;">
+            <th rowspan="2">Contract Type</th>
+            <th style="background-color: #44C8F5; text-align: center;" colspan="3">Volume Overall</th>
+            <th style="background-color: #44C8F5; text-align: center;" colspan="3">Open Interest Overall</th>
+          </tr>
+          <tr class="header" center style="background-color: #44C8F5;">
+            <th>Volume</th>
+            <th>Volume M/M Change</th>
+            <th>Volume Y/Y Change</th>
+            <th>Open Interest</th>
+            <th>Open Interest M/M Change</th>
+            <th>Open Interest Y/Y Change</th>
+          </tr>
+        </thead>
+      </table>
+
+    </div>
+</div>
+</div>
+<h1 style= "padding-left: 0px;padding-top:30px;">Historical Trends by Contract Type</h1>
+<!-- The following is the filter for Contract Type. Multiple elements can be selected and filtered using the Apply button.-->
+<div id="download-type1" style="float:left; width:1200px; margin-left: 0px;padding-top:10px;">
+<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown"> 
+  
+    <dt>
+    <a>
+      <span class="caret">Select Contract Type</span>    
+      <p class="multiSel"></p>  
+    </a>
+    </dt>
+  
+    <dd>
+        <div id="meniselect"></div>
+	
+    </dd>
+</div>
+<div style="display:inline-block; padding-left: 0px; position:absolute;">
+<button id="perform1" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
+</div>
+<!-- The following is the filter for Volume and OI. It will re-render all charts based on Volume and OI once the Apply button is clicked.-->
+<div style="display:inline-block; padding-left: 130px;">
+      <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
+      <div><label><input type=radio name="operation1" value="open">&nbsp;Open Interest</label></div>
+</div> 
+<div style="display:inline-block; position:absolute; padding-left: 10px;"><button id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
+<div style="display:inline-block; padding-left: 570px;">
+</div>
+<div style="display:inline-block; position:absolute; padding-left: 10px;">
+    <button id="render1" class="bu20" ><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/reset.svg"><br><br>Reset</br></br></button>
+</div>    	
+</div>
+
+
+    <!-- The following is the Contract Type chart.-->
+    <div id="test"style= "padding-left: 0px; padding-top:60px;"></div>
+
+</div>
+
+<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/d3.js"></script>
+<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/crossfilter.js"></script>
+<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/dc.js"></script>
+<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FileSaver.js"></script>
+<script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/d3.tip.v0.6.3.js"></script>
+<script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.css"/>
+<script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.js"></script>
+<script src="contract_type2.js"></script>
+
+
+  </body>
+</html>     
