@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html class="no-js">
+<head>
     
     <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.css">
@@ -11,185 +11,109 @@
   <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
 <link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/font-awesome.min.css">
-  </head>
 <style>
-    /*Styling for the chart*/
-.dc-chart path.area {
-fill-opacity: 1;
-stroke: none;
-}
-.dc-chart path.area.highlight {
-fill-opacity: .3;
-stroke-width: 3;
-stoke-opacity: 1;
-}
-/*Styling for the table*/
+
+    /*Styling for the table*/
 table.dataTable tr.odd { background-color: #A8DEF5; }
 table.dataTable tr.even { background-color: white; }
-    /*Styling for the navigation bar*/
-.fa-2x {
-font-size: 2em;
-}
-.fa {
-position: relative;
-display: table-cell;
-width: 60px;
-height: 36px;
-text-align: center;
-vertical-align: middle;
-font-size:20px;
+thead tr {background-color: #44C8F5;}
+.thead-inverse th {color: white;}
+
+h4{
+	border-bottom: 1px solid #1a1a1a;
+	padding-bottom: .1em;
+	margin-bottom: 1em;
+	position: relative;
+	font-size: 1.4em;
 }
 
-.scrollable2 {
- margin: 0px auto; width: 1300px;
+.chart_box h3{
+	font-size: 1.1em;
+}
+.info_chart{
+	position: absolute;
+	top: -38px;
+	right: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-left: -30px;
+	width: 100%;
 }
 
-.main-menu:hover,nav.main-menu.expanded {
-width:220px;
-overflow:visible;
+.info.important {
+  border:1px solid #ee2222;
+}
+
+.info.opened{
+	padding-bottom: 16px;
+	background: #e6e6e6 url(https://rawgit.com/tttp/iw-fr/master/img/close_info.svg) no-repeat center top;
+}
+.info{
+	position: absolute;
+	background: #e6e6e6 url(https://rawgit.com/tttp/iw-fr/master/img/info.svg) no-repeat;
+	display: block;
+	top: 37px;
+	right: 0px;
+	width: 21px;
+	height: 22.4px;
+	text-indent: -9834em;
+	cursor: pointer;
+}
+p.desc{
+	width: 100%;
+	margin-left: 15px;
+	background: #e6e6e6;
+	padding: 15px;
+	position: relative;
+	top: 58px;
+	
+	z-index: 1;
+	display: none;
+}
+.info_table{
+	position: absolute;
+	top: -30px;
+	right: 25px;
+}
+.info_chart p.desc{
+	font-weight: normal;
+	font-size: .875em;
+}
+
+     .no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(FIA_universal1.png) center no-repeat #fff;
 }
 
 
-
-.main-menu {
-background:	#F5F5F5;
-border-top:1px solid #000000;
-border-left:1px solid #000000;
-border-right:1px solid #000000;
-border-bottom:1px solid #000000;
-position:fixed;
-top:0;
-bottom:0;
-height:187px;
-left:0;
-width:50px;
-overflow:hidden;
--webkit-transition:width .05s linear;
-transition:width .05s linear;
--webkit-transform:translateZ(0) scale(1,1);
-z-index:10;
-}
-
-.main-menu>ul {
-margin:0px 0;
-position:absolute;
-}
-
-.main-menu>ul li ul{
-display:none;
-position: absolute;
-margin:7px 0;
-background:black;
-
-    list-style-type:none;
-    width:220px;
-    padding:0px;
-    margin-top:-38px;
-    margin-left:220px;
-    color:#999;
-}
-
-
-.main-menu li {
-position:relative;
-display:block;
-width:220px;
-}
-
-.main-menu li:hover ul {
-display:block;
-}
-
-.main-menu li>a {
-position:relative;
-display:table;
-border-collapse:collapse;
-border-spacing:0;
-color:#000;
-background:#F5F5F5;
-border:1px solid #000000;
-font-family: Arial;
-font-size: 14px;
-text-decoration:none;
--webkit-transform:translateZ(0) scale(1,1);
--webkit-transition:all .1s linear;
-transition:all .1s linear;
-  
-}
-
-.main-menu .nav-icon {
-position:relative;
-display:table-cell;
-width:60px;
-height:36px;
-text-align:center;
-vertical-align:middle;
-font-size:18px;
-}
-
-.main-menu .nav-text {
-position:relative;
-display:table-cell;
-vertical-align:middle;
-width:190px;
-  font-family: Arial;
-}
-
-.main-menu>ul.logout {
-position:absolute;
-left:0;
-bottom:0;
-}
-
-.no-touch .scrollable.hover {
-overflow-y:hidden;
-}
-
-.no-touch .scrollable.hover:hover {
-overflow-y:auto;
-overflow:visible;
-}
-
-a:hover,a:focus {
-text-decoration:none;
-}
-
-nav {
--webkit-user-select:none;
--moz-user-select:none;
--ms-user-select:none;
--o-user-select:none;
-user-select:none;
-}
-
-nav ul,nav li {
-outline:0;
-margin:0;
-padding:0;
-}
-.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-color:#fff;
-background-color:#44C8F5;
-}
-.area {
-float: left;
-background: #e2e2e2;
-width: 100%;
-height: 100%;
-}
-@font-face {
-  font-family: Arial; font-size:13px;
-  font-style: normal;
-  font-weight: 300;
-  
-}
 body {
- font-family: Arial; font-size:13px;
+  font-family: Arial; font-size: 13px;
 margin: 0 auto;
 
 }
     /*Styling for drop-down filters*/
 .dropdown {
+  position: relative;
+  
+}
+.dropdown1 {
+  position: relative;
+  
+}
+
+.dropdown2 {
+  position: relative;
+  
+}
+
+.dropdown3 {
   position: relative;
   
 }
@@ -205,27 +129,96 @@ a {
   
 }
 
+.dropdown1 dd,
+.dropdown1 dt {
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+.dropdown2 dd,
+.dropdown2 dt {
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+.dropdown3 dd,
+.dropdown3 dt {
+  margin: 0px;
+  padding: 0px;
+  
+}
 
 .dropdown ul {
   margin: -1px 0 0 0;
   
  }
 
+.dropdown1 ul {
+  margin: -1px 0 0 0;
+  
+ }
 
+.dropdown3 ul {
+  margin: -1px 0 0 0;
+  
+ }
+
+.dropdown4 ul {
+  margin: -1px 0 0 0;
+  
+ }
 .dropdown dd {
   position: relative;
 
 }
+.dropdown1 dd {
+  position: relative;
 
+}
+
+.dropdown2 dd {
+  position: relative;
+
+}
+
+.dropdown3 dd {
+  position: relative;
+
+}
 
 .dropdown a,
 .dropdown a:visited {
   color:#000;
   text-decoration: none;
   outline: none;
-  font-size: 13px;
+  font-size: 14px;
 }
 
+.dropdown1 a,
+.dropdown1 a:visited {
+  color:#000;
+  text-decoration: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.dropdown2 a,
+.dropdown2 a:visited {
+  color:#000;
+  text-decoration: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.dropdown3 a,
+.dropdown3 a:visited {
+  color:#000;
+  text-decoration: none;
+  outline: none;
+  font-size: 14px;
+}
 .dropdown dt a {
   background-color: #fff;
   display: block;
@@ -235,20 +228,79 @@ a {
   line-height: 8px;
   overflow: hidden;
   border: 1px solid black;
-  width: 200px;
-text-align: center;
+    width: 180px;
+font-size: 13px;
+}
+.dropdown1 dt a {
+  background-color: #fff;
+  display: block;
+  padding: 8px 20px 5px 10px;
+  height: 38px;
+  min-height: 10px;
+  line-height: 8px;
+  overflow: hidden;
+  border: 1px solid black;
+    width: 180px;
+font-size: 13px;
 }
 
+.dropdown2 dt a {
+  background-color: #fff;
+  display: block;
+  padding: 8px 20px 5px 10px;
+  height: 38px;
+  min-height: 10px;
+  line-height: 8px;
+  overflow: hidden;
+  border: 1px solid black;
+    width: 180px;
+font-size: 13px;
+}
+
+.dropdown3 dt a {
+  background-color: #fff;
+  display: block;
+  padding: 8px 20px 5px 10px;
+  height: 38px;
+  min-height: 10px;
+  line-height: 8px;
+  overflow: hidden;
+  border: 1px solid black;
+    width: 180px;
+font-size: 13px;
+}
 
 .dropdown dt a span,
 .multiSel span {
   cursor: pointer;
   display: inline-block;
-  padding: 5px 3px 2px 0;
+  padding: 5px 3px 2px 15px;
   
 }
 
+.dropdown1 dt a span,
+.multiSel1 span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 3px 2px 15px;
+  
+}
 
+.dropdown2 dt a span,
+.multiSel2 span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 3px 2px 15px;
+  
+}
+
+.dropdown3 dt a span,
+.multiSel3 span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 3px 2px 15px;
+  
+}
 .dropdown dd ul {
   background-color: #fff;
   border: 1px solid black;
@@ -258,25 +310,86 @@ text-align: center;
   padding: 2px 15px 2px 5px;
   position: absolute;
   top: 2px;
-  width: 284px;
+  width: 264px;
   list-style: none;
-  height: 150px;
+  height: 300px;
   overflow: auto;
-  font-size: 13px;
+  font-size: 12px;
   z-index:99;
 }
+.dropdown1 dd ul {
+  background-color: #fff;
+  border: 1px solid black;
+  color: #fff;
+  display: none;
+  left: 0px;
+  padding: 2px 15px 2px 5px;
+  position: absolute;
+  top: 2px;
+  width: 264px;
+  list-style: none;
+  height: 300px;
+  overflow: auto;
+  font-size: 12px;
+  z-index:99;
 
+}
+
+.dropdown2 dd ul {
+  background-color: #fff;
+  border: 1px solid black;
+  color: #fff;
+  display: none;
+  left: 0px;
+  padding: 2px 15px 2px 5px;
+  position: absolute;
+  top: 2px;
+  width:264px;
+  list-style: none;
+  height: 200px;
+  overflow: auto;
+  font-size: 12px;
+  z-index:99;
+
+}
+
+.dropdown3 dd ul {
+  background-color: #fff;
+  border: 1px solid black;
+  color: #fff;
+  display: none;
+  left: 0px;
+  padding: 2px 15px 2px 5px;
+  position: absolute;
+  top: 2px;
+  width: 264px;
+  list-style: none;
+  height: 300px;
+  overflow: auto;
+  font-size: 12px;
+  z-index:99;
+
+}
 .dropdown span.value {
   display: none;
 }
 
+.dropdown1 span.value {
+  display: none;
+}
 
+.dropdown2 span.value {
+  display: none;
+}
+
+.dropdown3 span.value {
+  display: none;
+}
 .dropdown dd ul li {
   padding: 5px;
   display: block;
   color:#000;
 }
-
 dd ul li input {
 vertical-align: middle;
 }
@@ -285,7 +398,35 @@ dd ul li b {
 vertical-align: middle;
 padding-left:2px;
 }
+.dropdown1 dd ul li {
+  padding: 5px;
+  display: block;
+  color:#000;
+}
+
+.dropdown2 dd ul li {
+  padding: 5px;
+  display: block;
+  color:#000;
+}
+
+.dropdown3 dd ul li {
+  padding: 5px;
+  display: block;
+  color:#000;
+}
 .dropdown dd ul li:hover {
+  background-color: #DCDCDC;
+}
+.dropdown1 dd ul li:hover {
+  background-color: #DCDCDC;
+}
+
+.dropdown2 dd ul li:hover {
+  background-color: #DCDCDC;
+}
+
+.dropdown3 dd ul li:hover {
   background-color: #DCDCDC;
 }
 
@@ -296,10 +437,30 @@ select{
 }
 .right1 { text-align: right; }
     /*Styling for buttons*/
+.bu20 {
+    border: 1px solid grey;
+    background-color: #f6f6f6;
+    width: 75px;
+    height: 85px;
+    position: relative;    
+    font-weight: bold;
+    color: #75787B;
+    font-size: 12px;
+    text-align: center; 
+    line-height: 100%; 
+     display: block; 
+}
+.bu20:hover {background-color: #c7c7c7}
+
+.bu20:active {
+  background-color: #c7c7c7;
+  
+  transform: translateY(8px);
+}
 button {
   background-color: #F5F5F5;
   width: 80px;
-  height:39px;
+  height: 39px;
   border: 1px solid black;
   padding: 10px 0;
   text-align: top;
@@ -308,6 +469,48 @@ button {
 border-radius: 5px;
 }
 button:hover {background-color: #44C8F5}
+.fix {
+  position:absolute;
+  height: 0px;
+  background: #00A4E7;
+  color: #FFF;
+  width: 1900px;
+  top: 0px;
+  left: 0;
+transform: translateZ(0);
+-moz-transform: translatez(0);
+-ms-transform: translatez(0);
+-o-transform: translatez(0);
+-webkit-transform: translateZ(0);
+-webkit-font-smoothing: antialiased;
+z-index: 999;
+}
+.fixed-header {
+  position: fixed;
+  top:0; left:0;
+}
+.fixed-header1 {
+  position: fixed;
+  top:0; left:0;
+}
+.scrollable {
+  margin: 0 auto;
+  width: 1300px;
+}
+.btn1{
+		margin-bottom: 0;
+		
+		min-height: 65px;
+		margin-top: 0;
+		padding: 20px .5em 0;
+		width: 110px;
+		
+		background: rgba(0, 0, 0,.3) url(https://rawgit.com/tttp/iw-fr/master/img/reset.svg) center 7% no-repeat;
+	}
+	
+	.btn1:hover{
+		background: rgba(0, 0, 0,.4) url(https://rawgit.com/tttp/iw-fr/master/img/reset.svg) center 7% no-repeat;
+	}
     /*Styling for the loading animation*/
 .fond{background-color: white;position:absolute;padding-top:400px;top:0;left:0; right:0;bottom:0;z-index:1999;  width: 100%;
   height: 500%;}
@@ -409,26 +612,160 @@ button:hover {background-color: #44C8F5}
   100%{transform:rotate(720deg) scale(1);}
 }
 
-.bu20 {
-    border: 1px solid grey;
-    background-color: #f6f6f6;
-    width: 70px;
-    height: 70px;
-    position: relative;    
-    font-weight: bold;
-    color: black;
-    font-size: 12px;
-    text-align: center; 
-    line-height: 100%; 
-     display: block; 
-}
-.bu20:hover {background-color: #c7c7c7}
+    /*Styling for the navigation bar*/
 
-.bu20:active {
-  background-color: #c7c7c7;
-  
-  transform: translateY(8px);
+.fa-2x {
+font-size: 2em;
 }
+.fa {
+position: relative;
+display: table-cell;
+width: 60px;
+height: 36px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
+}
+
+
+.main-menu:hover,nav.main-menu.expanded {
+width:220px;
+overflow:visible;
+}
+
+
+
+.main-menu {
+background:	#F5F5F5;
+border-top:1px solid #000000	;
+border-right:1px solid #000000	;
+border-bottom:1px solid #000000	;
+position:absolute;
+top:0;
+bottom:0;
+height:187px;
+left:0;
+width:50px;
+overflow:hidden;
+-webkit-transition:width .05s linear;
+transition:width .05s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+z-index:10;
+}
+
+.main-menu>ul {
+margin:0px 0;
+position:absolute;
+}
+
+.main-menu>ul li ul{
+display:none;
+position: absolute;
+margin:7px 0;
+background:black;
+
+    list-style-type:none;
+    width:220px;
+    padding:0px;
+    margin-top:-38px;
+    margin-left:220px;
+    color:#999;
+}
+
+
+.main-menu li {
+position:relative;
+display:block;
+width:220px;
+}
+
+.main-menu li:hover ul {
+display:block;
+}
+
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#000;
+background:#F5F5F5;
+border:1px solid #000000;
+
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition:all .1s linear;
+  
+}
+
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:60px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
+}
+
+.main-menu .nav-text {
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+  
+}
+
+.main-menu>ul.logout {
+position:absolute;
+left:0;
+bottom:0;
+}
+
+.no-touch .scrollable.hover {
+overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
+}
+
+a:hover,a:focus {
+text-decoration:none;
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+}
+
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color:#fff;
+background-color:#44C8F5;
+}
+.area {
+float: left;
+background: #e2e2e2;
+width: 100%;
+height: 100%;
+}
+@font-face {
+  
+  font-style: normal;
+  font-weight: 300;
+}
+    
 .caret:hover:before {
   border-top-color: #222;
 }
@@ -453,6 +790,9 @@ button:hover {background-color: #44C8F5}
   border-top: 5px solid black;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
+}
+.caret:hover:before {
+  border-top-color: #222;
 }
     /*Styling for the navigation drop-down*/
 .container1 ul { 
@@ -556,20 +896,12 @@ color: white;
     -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
     transform: rotate(45deg) translate(-8px, -8px) ;
 }
+
 </style>
-<script>
-function myFunction(x) {
-    x.classList.toggle("change");
-}
-	//paste this code under head tag or in a seperate js file.
-	// Wait for window load
-	setTimeout(function() {
-    $('.fond').fadeOut('slow');
-}, 3010);
-</script>
-  <body>
-  <!-- The following generates a loading animation that will end when all the charts finish loading.-->
-  <div align="center" class="fond" style:"width:100%; height:200%;">
+</head>
+<body>
+<!-- The following generates a loading animation that will end when all the charts finish loading.-->
+<div align="center" class="fond" style:"width:100%; height:200%;">
 <div id="fort"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png"></div>
   <div class="contener_general">
       <div class="contener_mixte"><div class="ballcolor ball_1">&nbsp;</div></div>
@@ -583,7 +915,8 @@ function myFunction(x) {
           </div>
 </div>
 
-<div class= "scrollable2" style= "padding-left: 0px;">
+
+<div id="scrollable" class= "scrollable" style="padding-left:0px;">
 <div>
 <!-- The following div elements generate the FIA logo and navigation to other dashboards.-->
 <div class="navbar-left" style=" vertical-align: top;display:inline-block;padding-left:0px;"><a  href="http://www.fia.org/" style="border-bottom:none; margin-top:0px;"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png" style="max-height:60px;margin-top:0px;"></a></div>
@@ -693,6 +1026,69 @@ function myFunction(x) {
 
 </div>
 </div>
+<h1 style="padding-left:0px;">September Exchange Table</h1>
+<div class="clearfix"></div>
+<div style="width: 1200px; padding-top: 10px;">
+<!-- The following is the filter for Exchange, Country, and Region. Multiple elements can be selected and filtered using the Apply button.-->
+<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown"> 
+  
+    <dt>
+    <a href="#">
+      <span class="caret">Select Exchange</span>    
+      <p class="multiSel"></p>  
+    </a>
+    </dt>
+  
+    <dd>
+        <div id="meniselect"></div>
+    </dd>
+</div>
+<div style="display:inline-block; position:absolute; padding-left: 0px;">
+<button id="perform1" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
+</div>
+<div style="display:inline-block; vertical-align: top; margin-left: 100px;" class="dropdown1"> 
+  
+    <dt>
+    <a href="#">
+      <span class="caret">Select Country</span>    
+      <p class="multiSel1"></p>  
+    </a>
+    </dt>
+  
+    <dd>
+        <div id="menu1select"></div>
+    </dd>
+</div>
+<div style="display:inline-block; position:absolute; padding-left: 0px;">
+<button id="perform10" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
+</div>
+<div style="display:inline-block; vertical-align: top; margin-left: 100px;" class="dropdown2"> 
+  
+    <dt>
+    <a href="#">
+      <span class="caret">Select Region</span>    
+      <p class="multiSel2"></p>  
+    </a>
+    </dt>
+  
+    <dd>
+        <div id="menu2select"></div>
+    </dd>
+</div>
+<div style="display:inline-block; position:absolute; padding-left: 0px;">
+<button id="perform11" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
+</div>
+<!-- The following is the filter for Volume and OI. It will re-render all charts based on Volume and OI once the Apply button is clicked.-->
+<div style="margin-left: 105px; display:inline-block;">
+	<div id="download-type1" style="clear: both;">
+      <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
+      <div><label><input type=radio name="operation1" value="open">&nbsp;Open Interest</label></div>
+    	</div>
+
+</div>
+<div style="display:inline-block; position:absolute; padding-left: 10px;"><button id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
+</div>
+
 <div id = "123">
 <div class="clearfix"></div>
   </div>
@@ -700,71 +1096,34 @@ function myFunction(x) {
 
   
 <div class="clearfix"></div>
-    <!-- The following is the Contract Type table. -->
-<h1 style= "padding-left:0px;">September Highlights by Contract Type</h1>
-    <div class="row">
-    <div class="col-xs-12">
-<div style="clear: both; margin: 0px; float: left; padding-top:10px;">
+    <!-- The following is the exchange ranking table. -->
+    <div style="float:left; width:1380px;">
+    <div style="float:left; width:1380px;">
+<div style="clear: both; margin: 0px; float:left; padding-top:30px;">
       <table class="table table-bordered table-striped table-hover" id="table" cellspacing="0" width="1100px">
         <thead class="thead-inverse">
-	  <tr class="header" center style="background-color: #44C8F5;">
-            <th rowspan="2">Contract Type</th>
-            <th style="background-color: #44C8F5; text-align: center;" colspan="3">Volume Overall</th>
-            <th style="background-color: #44C8F5; text-align: center;" colspan="3">Open Interest Overall</th>
-          </tr>
-          <tr class="header" center style="background-color: #44C8F5;">
-            <th>Volume</th>
-            <th>Volume M/M Change</th>
-            <th>Volume Y/Y Change</th>
-            <th>Open Interest</th>
-            <th>Open Interest M/M Change</th>
-            <th>Open Interest Y/Y Change</th>
-          </tr>
+          
         </thead>
       </table>
 
     </div>
+<div style="float:left; padding-left:30px;padding-top:100px;">
+    <!-- The following is the reset all filters button.-->
+    <button id="render1" class="bu20" ><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/reset.svg"><br><br>Reset All</br></br></button>
+    <!--<div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
+    <button class="bu20" onclick="exportToData();"><img src="https://fia.org/sites/default/files/SEFTic_insert_chart_black_24dp_2x.png">Download CSV</button>
+    <div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
+    <button class="bu20" onclick="exportCrossTab();"><img src="https://fia.org/sites/default/files/SEFTic_pie_chart_black_24dp_2x.png">Download Excel</button>
+     <div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
+    <button class="bu20" onclick="exportToPDF();"><img src="https://fia.org/sites/default/files/SEFTic_insert_drive_file_black_24dp_2x.png">Download PDF</button>	
+      <div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
+    <button class="bu20" onclick="exportImage();"><img src="https://fia.org/sites/default/files/SEFTic_insert_photo_black_24dp_2x.png">Download SVG</button> -->
 </div>
-</div>
-<h1 style= "padding-left: 0px;padding-top:30px;">Historical Trends by Contract Type</h1>
-<!-- The following is the filter for Contract Type. Multiple elements can be selected and filtered using the Apply button.-->
-<div id="download-type1" style="float:left; width:1200px; margin-left: 0px;padding-top:10px;">
-<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown"> 
-  
-    <dt>
-    <a>
-      <span class="caret">Select Contract Type</span>    
-      <p class="multiSel"></p>  
-    </a>
-    </dt>
-  
-    <dd>
-        <div id="meniselect"></div>
-	
-    </dd>
-</div>
-<div style="display:inline-block; padding-left: 0px; position:absolute;">
-<button id="perform1" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
-</div>
-<!-- The following is the filter for Volume and OI. It will re-render all charts based on Volume and OI once the Apply button is clicked.-->
-<div style="display:inline-block; padding-left: 130px;">
-      <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
-      <div><label><input type=radio name="operation1" value="open">&nbsp;Open Interest</label></div>
-</div> 
-<div style="display:inline-block; position:absolute; padding-left: 10px;"><button id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
-<div style="display:inline-block; padding-left: 570px;">
-</div>
-<div style="display:inline-block; position:absolute; padding-left: 10px;">
-    <button id="render1" class="bu20" ><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/reset.svg"><br><br>Reset</br></br></button>
-</div>    	
 </div>
 
-
-    <!-- The following is the Contract Type chart.-->
-    <div id="test"style= "padding-left: 0px; padding-top:60px;"></div>
-
 </div>
-
+</div>
+</div>
 <script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/d3.js"></script>
 <script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/crossfilter.js"></script>
 <script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/dc.js"></script>
@@ -773,8 +1132,20 @@ function myFunction(x) {
 <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.css"/>
 <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.js"></script>
-<script src="contract_type2.js"></script>
+<script src="Exchange_Ranking.js"></script>
+
+<script>
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+	//paste this code under head tag or in a seperate js file.
+	// Wait for window load
+	setTimeout(function() {
+    $('.fond').fadeOut('slow');
+}, 3010);
+</script>
 
 
-  </body>
-</html>     
+</body>
+</html>
+

@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html class="no-js">
+
 <head>
-    
+    <title>Ovik POC</title>
     <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/dc.css"/>
-   <link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" title="RSD" href="https://rawgit.com/dc-js/dc.js/master/web/css/dc.css"/>
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://rawgit.com/KidSysco/jquery-ui-month-picker/master/src/MonthPicker.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.min.js"></script>
-  <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery-ui.js"></script>
-<link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
-<link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/font-awesome.min.css">
+
 <style>
+title {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    visibility: visible;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
 
-    /*Styling for the table*/
-table.dataTable tr.odd { background-color: #A8DEF5; }
-table.dataTable tr.even { background-color: white; }
-thead tr {background-color: #44C8F5;}
-.thead-inverse th {color: white;}
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+title:hover {
+    visibility: visible;
+}
 
 h4{
 	border-bottom: 1px solid #1a1a1a;
@@ -25,6 +42,7 @@ h4{
 	margin-bottom: 1em;
 	position: relative;
 	font-size: 1.4em;
+        font-weight: 300;
 }
 
 .chart_box h3{
@@ -79,6 +97,35 @@ p.desc{
 	font-weight: normal;
 	font-size: .875em;
 }
+    /* testing out d3 tooltip */
+    .d3-tip {
+      line-height: 1;
+      font-weight: bold;
+      padding: 12px;
+      background:  rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-radius: 8px;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color: rgba(0, 0, 0, 0.8);
+      content: "\25BC";
+      position: absolute;
+      text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+      margin: -1px 0 0 0;
+      top: 100%;
+      left: 0;
+    }
 
      .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
@@ -91,14 +138,73 @@ p.desc{
 	z-index: 9999;
 	background: url(FIA_universal1.png) center no-repeat #fff;
 }
+    </style>
+    <style>
 
+ 
+   body{font-family: Arial;}
+ 
+   .container{
+    width:150px;height:150px;
+   
+ position: relative;
+    perspective: 800px;
+    margin:0 auto;
+    }
+  
+  .card{
+    text-align:center;
+    position: absolute;
+ 
+   width: 100%;
+    height: 100%;
+    }
+   
+ .card h3{color:#000;}
+  
+  .card p{color:#000;font-family: 'Arial';font-weight:500;}
+  
+  .card:hover .front {
+    transform: rotateY(-180deg);
+    }
+  
+  .card:hover .back {
+    transform: rotateY(0deg);
+    }
+  
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; backface-visibility: hidden; transition: 0.5s; padding: 1px;
+    }
+ 
+   .face.front{
+    background:#fff;
+ border:1px solid;   transform: rotateY(0deg);
+    }
+   
+ .face.back {
+    display: block;
+    transform: rotateY(180deg);
+   color: white;
+    text-align: center;
+    background-color: #fff; border:1px solid #000;
+    }
+  
+  .card a.btn.btn-block{display:block;}
+  
+  .card a.btn.btn-outline{background:#000;border:1px solid #fff;border-radius:3px;padding:5px;color:#fff;text-align:center;text-decoration:none;}
+   
+ .card a.btn.btn-outline:hover{background:#773f86;border:1px solid transparent;}
 
+ .dc-chart g.row text {fill: black;}
 body {
-  font-family: Arial; font-size: 13px;
+  font-family: Arial; font-size:13px;
 margin: 0 auto;
 
 }
-    /*Styling for drop-down filters*/
+
 .dropdown {
   position: relative;
   
@@ -107,13 +213,7 @@ margin: 0 auto;
   position: relative;
   
 }
-
 .dropdown2 {
-  position: relative;
-  
-}
-
-.dropdown3 {
   position: relative;
   
 }
@@ -135,16 +235,8 @@ a {
   padding: 0px;
   
 }
-
 .dropdown2 dd,
 .dropdown2 dt {
-  margin: 0px;
-  padding: 0px;
-  
-}
-
-.dropdown3 dd,
-.dropdown3 dt {
   margin: 0px;
   padding: 0px;
   
@@ -159,13 +251,7 @@ a {
   margin: -1px 0 0 0;
   
  }
-
-.dropdown3 ul {
-  margin: -1px 0 0 0;
-  
- }
-
-.dropdown4 ul {
+.dropdown2 ul {
   margin: -1px 0 0 0;
   
  }
@@ -177,13 +263,7 @@ a {
   position: relative;
 
 }
-
 .dropdown2 dd {
-  position: relative;
-
-}
-
-.dropdown3 dd {
   position: relative;
 
 }
@@ -193,7 +273,7 @@ a {
   color:#000;
   text-decoration: none;
   outline: none;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .dropdown1 a,
@@ -201,23 +281,14 @@ a {
   color:#000;
   text-decoration: none;
   outline: none;
-  font-size: 14px;
+  font-size: 12px;
 }
-
 .dropdown2 a,
 .dropdown2 a:visited {
   color:#000;
   text-decoration: none;
   outline: none;
-  font-size: 14px;
-}
-
-.dropdown3 a,
-.dropdown3 a:visited {
-  color:#000;
-  text-decoration: none;
-  outline: none;
-  font-size: 14px;
+  font-size: 12px;
 }
 .dropdown dt a {
   background-color: #fff;
@@ -228,8 +299,8 @@ a {
   line-height: 8px;
   overflow: hidden;
   border: 1px solid black;
-    width: 180px;
-font-size: 13px;
+  width: 150px;
+  font-size: 12px;
 }
 .dropdown1 dt a {
   background-color: #fff;
@@ -240,10 +311,9 @@ font-size: 13px;
   line-height: 8px;
   overflow: hidden;
   border: 1px solid black;
-    width: 180px;
-font-size: 13px;
+  width: 150px;
+  font-size: 12px;
 }
-
 .dropdown2 dt a {
   background-color: #fff;
   display: block;
@@ -253,21 +323,8 @@ font-size: 13px;
   line-height: 8px;
   overflow: hidden;
   border: 1px solid black;
-    width: 180px;
-font-size: 13px;
-}
-
-.dropdown3 dt a {
-  background-color: #fff;
-  display: block;
-  padding: 8px 20px 5px 10px;
-  height: 38px;
-  min-height: 10px;
-  line-height: 8px;
-  overflow: hidden;
-  border: 1px solid black;
-    width: 180px;
-font-size: 13px;
+  width: 150px;
+  font-size: 12px;
 }
 
 .dropdown dt a span,
@@ -285,17 +342,8 @@ font-size: 13px;
   padding: 5px 3px 2px 15px;
   
 }
-
 .dropdown2 dt a span,
 .multiSel2 span {
-  cursor: pointer;
-  display: inline-block;
-  padding: 5px 3px 2px 15px;
-  
-}
-
-.dropdown3 dt a span,
-.multiSel3 span {
   cursor: pointer;
   display: inline-block;
   padding: 5px 3px 2px 15px;
@@ -304,69 +352,49 @@ font-size: 13px;
 .dropdown dd ul {
   background-color: #fff;
   border: 1px solid black;
-  color: #fff;
+  color: white;
   display: none;
   left: 0px;
   padding: 2px 15px 2px 5px;
   position: absolute;
   top: 2px;
-  width: 264px;
+  width: 235px;
   list-style: none;
-  height: 300px;
+  height: 230px;
   overflow: auto;
-  font-size: 12px;
+  font-size: 11px;
   z-index:99;
 }
 .dropdown1 dd ul {
   background-color: #fff;
   border: 1px solid black;
-  color: #fff;
+  color: #75787B;
   display: none;
   left: 0px;
   padding: 2px 15px 2px 5px;
   position: absolute;
   top: 2px;
-  width: 264px;
+  width: 235px;
   list-style: none;
-  height: 300px;
+  height: 230px;
   overflow: auto;
-  font-size: 12px;
+  font-size: 11px;
   z-index:99;
-
 }
-
 .dropdown2 dd ul {
   background-color: #fff;
   border: 1px solid black;
-  color: #fff;
+  color: #75787B;
   display: none;
   left: 0px;
   padding: 2px 15px 2px 5px;
   position: absolute;
   top: 2px;
-  width:264px;
+  width: 235px;
   list-style: none;
-  height: 200px;
+  height: 230px;
   overflow: auto;
-  font-size: 12px;
-  z-index:99;
-
-}
-
-.dropdown3 dd ul {
-  background-color: #fff;
-  border: 1px solid black;
-  color: #fff;
-  display: none;
-  left: 0px;
-  padding: 2px 15px 2px 5px;
-  position: absolute;
-  top: 2px;
-  width: 264px;
-  list-style: none;
-  height: 300px;
-  overflow: auto;
-  font-size: 12px;
+  font-size: 11px;
   z-index:99;
 
 }
@@ -377,12 +405,7 @@ font-size: 13px;
 .dropdown1 span.value {
   display: none;
 }
-
 .dropdown2 span.value {
-  display: none;
-}
-
-.dropdown3 span.value {
   display: none;
 }
 .dropdown dd ul li {
@@ -403,14 +426,7 @@ padding-left:2px;
   display: block;
   color:#000;
 }
-
 .dropdown2 dd ul li {
-  padding: 5px;
-  display: block;
-  color:#000;
-}
-
-.dropdown3 dd ul li {
   padding: 5px;
   display: block;
   color:#000;
@@ -421,12 +437,7 @@ padding-left:2px;
 .dropdown1 dd ul li:hover {
   background-color: #DCDCDC;
 }
-
 .dropdown2 dd ul li:hover {
-  background-color: #DCDCDC;
-}
-
-.dropdown3 dd ul li:hover {
   background-color: #DCDCDC;
 }
 
@@ -435,40 +446,58 @@ select{
     border-style: solid;
     border-color: black;
 }
-.right1 { text-align: right; }
-    /*Styling for buttons*/
-.bu20 {
-    border: 1px solid grey;
-    background-color: #f6f6f6;
-    width: 75px;
-    height: 85px;
-    position: relative;    
-    font-weight: bold;
-    color: #75787B;
-    font-size: 12px;
-    text-align: center; 
-    line-height: 100%; 
-     display: block; 
-}
-.bu20:hover {background-color: #c7c7c7}
-
-.bu20:active {
-  background-color: #c7c7c7;
-  
-  transform: translateY(8px);
-}
 button {
   background-color: #F5F5F5;
   width: 80px;
-  height: 39px;
+height: 39px;
   border: 1px solid black;
   padding: 10px 0;
   text-align: top;
   color: black;
   font-weight: bold;
 border-radius: 5px;
+
 }
 button:hover {background-color: #44C8F5}
+.button2 {
+  background-color: #F5F5F5;
+  width: 40px;
+height: 39px;
+  border: 1px solid black;
+  padding: 10px 0;
+  text-align: top;
+  color: black;
+  font-weight: bold;
+border-radius: 5px;
+
+}
+.button2:hover {background-color: #44C8F5}
+.button3 {
+  background-color: #F5F5F5;
+  width: 50px;
+height: 39px;
+  border: 1px solid black;
+  padding: 10px 0;
+  text-align: top;
+  color: black;
+  font-weight: bold;
+border-radius: 5px;
+
+}
+.button3:hover {background-color: #44C8F5}
+.button4 {
+  background-color: #F5F5F5;
+  width: 100px;
+height: 39px;
+  border: 1px solid black;
+  padding: 10px 0;
+  text-align: top;
+  color: black;
+  font-weight: bold;
+border-radius: 5px;
+
+}
+.button4:hover {background-color: #44C8F5}
 .fix {
   position:absolute;
   height: 0px;
@@ -494,13 +523,32 @@ z-index: 999;
   top:0; left:0;
 }
 .scrollable {
-  margin: 0 auto;
+  margin: 0px auto;
   width: 1300px;
+}
+.bu20 {
+    border: 1px solid grey;
+    background-color: #f6f6f6;
+    width: 75px;
+    height: 85px;
+    position: relative;    
+    color: #75787B;
+    font-size: 12px;
+    text-align: center; 
+    line-height: 100%; 
+     display: block; 
+}
+.bu20:hover {background-color: #c7c7c7}
+
+.bu20:active {
+  background-color: #c7c7c7;
+  
+  transform: translateY(8px);
 }
 .btn1{
 		margin-bottom: 0;
 		
-		min-height: 65px;
+		min-height: 60px;
 		margin-top: 0;
 		padding: 20px .5em 0;
 		width: 110px;
@@ -511,7 +559,6 @@ z-index: 999;
 	.btn1:hover{
 		background: rgba(0, 0, 0,.4) url(https://rawgit.com/tttp/iw-fr/master/img/reset.svg) center 7% no-repeat;
 	}
-    /*Styling for the loading animation*/
 .fond{background-color: white;position:absolute;padding-top:400px;top:0;left:0; right:0;bottom:0;z-index:1999;  width: 100%;
   height: 500%;}
 
@@ -612,7 +659,7 @@ z-index: 999;
   100%{transform:rotate(720deg) scale(1);}
 }
 
-    /*Styling for the navigation bar*/
+}
 
 .fa-2x {
 font-size: 2em;
@@ -641,7 +688,7 @@ border-top:1px solid #000000	;
 border-right:1px solid #000000	;
 border-bottom:1px solid #000000	;
 position:absolute;
-top:0;
+top:300px;
 bottom:0;
 height:187px;
 left:0;
@@ -764,10 +811,17 @@ height: 100%;
   
   font-style: normal;
   font-weight: 300;
+  
 }
     
-.caret:hover:before {
-  border-top-color: #222;
+h3 {
+   font-size: large;
+}
+#p1 {
+   font-size: xx-large;
+}
+#p2 {
+   font-size: small;
 }
 .caret {
   position: relative;
@@ -777,7 +831,7 @@ height: 100%;
   content: '';
   position: absolute;
   top: 50%;
-  left: 150px;
+  left: 120px;
   border-top: 5px solid black;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
@@ -786,7 +840,7 @@ height: 100%;
   content: '';
   position: absolute;
   top: 50%;
-  left: 150px;
+  left: 120px;
   border-top: 5px solid black;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
@@ -794,11 +848,12 @@ height: 100%;
 .caret:hover:before {
   border-top-color: #222;
 }
-    /*Styling for the navigation drop-down*/
+
+
 .container1 ul { 
   position: absolute;
   top: 54px;
-  left: 525px; /* move content -4px because of container left border */
+  left: 525px; 
   width:220px;
   padding: 0px 0px;
 background:	#F5F5F5;
@@ -830,7 +885,7 @@ position:relative;
 display:table-cell;
 vertical-align:middle;
 width:190px;
-  font-family:Arial;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .container1 li>a {
@@ -841,7 +896,7 @@ border-spacing:0;
 color:#000;
 background:#F5F5F5;
 border:1px solid #000000;
-font-family: Arial;
+font-family: arial;
 width:218px;
 font-size: 14px;
 text-decoration:none;
@@ -897,11 +952,26 @@ color: white;
     transform: rotate(45deg) translate(-8px, -8px) ;
 }
 
+
+
+
 </style>
+<script>
+
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+	//paste this code under head tag or in a seperate js file.
+	// Wait for window load
+	setTimeout(function() {
+    $('.fond').fadeOut('slow');
+}, 3010);
+</script>
+
 </head>
 <body>
-<!-- The following generates a loading animation that will end when all the charts finish loading.-->
-<div align="center" class="fond" style:"width:100%; height:200%;">
+
+<div align="center" class="fond"style="width:100%; height:200%;">
 <div id="fort"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png"></div>
   <div class="contener_general">
       <div class="contener_mixte"><div class="ballcolor ball_1">&nbsp;</div></div>
@@ -915,11 +985,9 @@ color: white;
           </div>
 </div>
 
-
 <div id="scrollable" class= "scrollable" style="padding-left:0px;">
 <div>
-<!-- The following div elements generate the FIA logo and navigation to other dashboards.-->
-<div class="navbar-left" style=" vertical-align: top;display:inline-block;padding-left:0px;"><a  href="http://www.fia.org/" style="border-bottom:none; margin-top:0px;"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png" style="max-height:60px;margin-top:0px;"></a></div>
+<div class="navbar-left" style=" vertical-align: top;display:inline-block;padding-left:90px;"><a  href="http://www.fia.org/" style= "border-bottom:none; margin-top:0px;"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png" style="max-height:60px;margin-top:0px;"></a></div>
 <div style="display:inline-block; vertical-align: top; padding-left:700px; padding-top:13px; position: relative">
 <div id="654" class="container1">
   <div class="bar1"></div>
@@ -927,7 +995,7 @@ color: white;
   <div class="bar3"></div>
 <ul class="dropdown-menu multi-level" style="display:none ">
       <li>
-                    <a href="https://fia.org/categories/exchange-volume/">
+                     <a href="https://fia.org/categories/exchange-volume">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Home
@@ -1026,32 +1094,59 @@ color: white;
 
 </div>
 </div>
-<h1 style="padding-left:0px;">September Exchange Table</h1>
-<div class="clearfix"></div>
-<div style="width: 1200px; padding-top: 10px;">
-<!-- The following is the filter for Exchange, Country, and Region. Multiple elements can be selected and filtered using the Apply button.-->
-<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown"> 
+<h1 style="padding-left:90px;">Global Overview in September</h1>
+<div id="6" style="display:inline-block; padding: 0px;"></div>
+<div id="scrollable" class= "scrollable" style="padding-left:80px;">
+
+<div style="display:inline-block; padding-left: 10px;">
+<!--
+	<button id="one" class="button2">1M</button>
+	<button id="three" class="button2">3M</button>
+	<button id="six" class="button2">6M</button>
+-->
+	<button id="YearTo" class="button3">YTD</button>
+	<button id="oneYear" class="button2">1Y</button>
+	<button id="twoYear" class="button2">2Y</button>
+	<button id="threeYear" class="button2">3Y</button>
+	<button id="fiveYear" class="button2">5Y</button>
+	<button id="tenYear" class="button2">10Y</button>
+	<button id="All" class="button3">All</button>
+	<button id="Custom" class="button4">Custom</button>
+<div style="margin-left: 20px; vertical-align:top; display:inline-block;">
+	<div id="download-type1" style="clear: both;">
+      <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
+      <div><label><input type=radio name="operation1" value="open">&nbsp;Open Interest</label></div>
+    	</div>
+
+</div>
+<div style="display:inline-block; padding-left: 10px;"><button id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
+
+</div>
+
+
+<div>
+
+<div id="hid" style="visibility:hidden; float:left; padding-left: 20px; padding-top: 0px;">
+<div style="display:inline-block;">
+<label style="margin-bottom:0;" for="from">From</label>
+<input type="text" id="from" name="from">
+<label style="margin-bottom:0;" for="to">to</label>
+<input type="text" id="to" name="to">
+
+
+</div>
+<div style="display:inline-block; padding-left: 10px;">
+<button style="{background-color: #f6f6f6;border: 1px solid black;}" id="perform">Perform</button>
+</div>
+</div>
+
+<div style="float:left; padding-left: 10px; width: 1300px; padding-top: 10px;">
+<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown1">
   
     <dt>
-    <a href="#">
-      <span class="caret">Select Exchange</span>    
-      <p class="multiSel"></p>  
-    </a>
-    </dt>
-  
-    <dd>
-        <div id="meniselect"></div>
-    </dd>
-</div>
-<div style="display:inline-block; position:absolute; padding-left: 0px;">
-<button id="perform1" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
-</div>
-<div style="display:inline-block; vertical-align: top; margin-left: 100px;" class="dropdown1"> 
-  
-    <dt>
-    <a href="#">
-      <span class="caret">Select Country</span>    
-      <p class="multiSel1"></p>  
+    <a href="#/">
+      <span class="caret">Select Exchange</span>
+      <p class="multiSel1"></p>
     </a>
     </dt>
   
@@ -1062,54 +1157,60 @@ color: white;
 <div style="display:inline-block; position:absolute; padding-left: 0px;">
 <button id="perform10" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
 </div>
-<div style="display:inline-block; vertical-align: top; margin-left: 100px;" class="dropdown2"> 
+<div style="display:inline-block; vertical-align: top; margin-left: 120px;" class="dropdown">
   
     <dt>
-    <a href="#">
-      <span class="caret">Select Region</span>    
+    <a href="#/">
+      <span class="caret">Select Country</span>
+      <p class="multiSel"></p>
+    </a>
+    </dt>
+  
+    <dd>
+        <div id="meniselect"></div>
+    </dd>
+</div>
+<div style="display:inline-block; position:absolute; padding-left: 5px;">
+<button id="perform1" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
+</div>
+<div style="display:inline-block; vertical-align: top; margin-left: 120px;" class="dropdown2"> 
+  
+    <dt>
+    <a href="#/">
+      <span class="caret">Select Category</span>
       <p class="multiSel2"></p>  
     </a>
     </dt>
   
     <dd>
-        <div id="menu2select"></div>
+        <div id="menu3select"></div>
     </dd>
 </div>
-<div style="display:inline-block; position:absolute; padding-left: 0px;">
+<div style="display:inline-block; position:absolute; padding-left: 5px;">
 <button id="perform11" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
 </div>
-<!-- The following is the filter for Volume and OI. It will re-render all charts based on Volume and OI once the Apply button is clicked.-->
-<div style="margin-left: 105px; display:inline-block;">
-	<div id="download-type1" style="clear: both;">
-      <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
-      <div><label><input type=radio name="operation1" value="open">&nbsp;Open Interest</label></div>
-    	</div>
-
-</div>
-<div style="display:inline-block; position:absolute; padding-left: 10px;"><button id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
 </div>
 
-<div id = "123">
-<div class="clearfix"></div>
-  </div>
-<div class="clearfix"></div>
 
-  
-<div class="clearfix"></div>
-    <!-- The following is the exchange ranking table. -->
-    <div style="float:left; width:1380px;">
-    <div style="float:left; width:1380px;">
-<div style="clear: both; margin: 0px; float:left; padding-top:30px;">
-      <table class="table table-bordered table-striped table-hover" id="table" cellspacing="0" width="1100px">
-        <thead class="thead-inverse">
-          
-        </thead>
-      </table>
+<div id = "das">
+<div class="col-md-3 chart_box" style="float: left; margin-left:auto; margin-right:auto; padding-top: 30px; width: 1400px">
+<div class="col-md-3 chart_box" style="float: left; width:1100px; height:450px;">
+		<h4 id="header2">Volume by Month-Year</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The area chart below shows the Volume/Open Interest distribution by Month-Year. CLick on the chart to select the time range for the data filter. After selecting the time range filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+  <div id="month_chart"></div>
 
+  <div id="overall_chart">
+    <div class="reset" style="visibility: hidden;">range: <span class="filter"></span>
+      <a href="javascript:overall_chart.filterAll();dc.redrawAll();">reset</a>
     </div>
-<div style="float:left; padding-left:30px;padding-top:100px;">
-    <!-- The following is the reset all filters button.-->
-    <button id="render1" class="bu20" ><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/reset.svg"><br><br>Reset All</br></br></button>
+</div>
+
+  </div>
+<div style="float: left; position:relative;padding-left:40px;padding-top:50px;">
+    <button class="bu20" id="render1"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/reset.svg"><br><br>Reset All</br></br></button>
     <!--<div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
     <button class="bu20" onclick="exportToData();"><img src="https://fia.org/sites/default/files/SEFTic_insert_chart_black_24dp_2x.png">Download CSV</button>
     <div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
@@ -1119,33 +1220,132 @@ color: white;
       <div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
     <button class="bu20" onclick="exportImage();"><img src="https://fia.org/sites/default/files/SEFTic_insert_photo_black_24dp_2x.png">Download SVG</button> -->
 </div>
+    </div>
+
+
+
+
+<div class="col-md-3 chart_box" style="float: left;  margin-left:auto; margin-right:auto; padding-top: 80px; padding-left: 0px;width: 1300px">
+	<div style="float: left; padding-top: 0px; padding-left:0px;">
+	<div class="col-md-6 chart_box map_container" style="float: left; width:800px; height:500px;padding-left:50px;">
+
+		<h4 id="header4">Volume by Country</h4>
+		<div class="info_chart">
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The  chloropleth map below shows the Volume/Open Interest distribution by Country. CLick on the chart to select the countries to filter the data. After selecting the country filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+		
+		<div id="country_chart">
+
+        <a class="reset" href="javascript:country_chart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+</div>
+	</div>
+</div>
+<div class="col-md-3 chart_box" style="float: left; width:400px; height:350px; padding-left: 10px; padding-top: 0px">
+		<h4 id="header6">Volume by Instrument Type</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The row chart below shows the Volume/Open Interest distribution by Instrument Type. CLick on the chart to select the instrument types to filter the data. After selecting the intrument type filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+<div id="instr_chart">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:instr_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<div class="col-md-3 chart_box" style="float: left; margin-left:auto; margin-right:auto; padding-left:50px; width: 1200px">
+<div class="col-md-3 chart_box" style="float: left;width:400px; height:700px; padding-left: 0px; padding-top: 0px;">
+<h4 id="header7">Top 20 Contracts by Volume</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The row chart below shows the Volume/Open Interest distribution by Instrument Type. CLick on the chart to select the instrument types to filter the data. After selecting the intrument type filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+      <div id="contracts_chart">
+<div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:contracts_chart.filterAll();dc.redrawAll();">reset</a>
+    </div></div></div>
+<div class="col-md-3 chart_box" style="float: left; margin-left:auto; margin-right:auto; padding-left: 0px; width: 700px;">
+<div class="col-md-3 chart_box" style="margin-left:auto; margin-right:auto; padding-left: 0px; width: 1000px;">
+<div class="col-md-3 chart_box" style="float: left; width:350px; height:350px;">
+		<h4 id="header3">Volume by Region</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Region. CLick on the chart to select the regions to filter the data. After selecting the region filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+  <div id="region_chart">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:region_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+</div>
+<div class="col-md-3 chart_box" style="float: left; width:350px; height:350px; padding-left:50px;">
+		<h4 id="header5">Volume by Exchange</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Parent Companies. CLick on the chart to select the Parent Companies to filter the data. After selecting the parent filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+  <div id="exch_chart">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:exch_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+</div>
+</div>
+</div>
+<div class="col-md-3 chart_box" style="margin-left:auto; margin-right:auto; padding-top: 50px; width: 1000px;">
+<div class="col-md-3 chart_box" style="float: left; width:350px; height:350px; padding-top: 0px; padding-left: 0px">
+		<h4 id="header7">Volume by Category</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Exchange. CLick on the chart to select the exchanges to filter the data. After selecting the exchange filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+  <div id="category_chart">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:category_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+</div>
+</div>
+<div class="col-md-3 chart_box"  style="float: left; width:350px; height:350px; padding-left:50px; padding-top: 0px;">
+		<h4 id="header8">Volume by Subcategory</h4>
+		<div class="info_chart" >
+			<span class="info">info</span>
+			<p class="desc" style="display: none;">The pie chart below shows the Volume/Open Interest distribution by Exchange. CLick on the chart to select the exchanges to filter the data. After selecting the exchange filter, you can click on the reset link below to remove the filters from the chart. You can also click on the Reset All button in the header to reset all changes in the dashboard.</p>
+		</div>
+<div id="subcategory_chart">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:subcategory_chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+</div>
+    </div>
+</div>
+</div>
+
+
+</div>
 </div>
 
 </div>
 </div>
 </div>
-<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/d3.js"></script>
-<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/crossfilter.js"></script>
-<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/dc.js"></script>
-<script type="text/javascript" src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FileSaver.js"></script>
-<script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/d3.tip.v0.6.3.js"></script>
-<script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.css"/>
-<script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.js"></script>
-<script src="exchange_ranking1.js"></script>
-
-<script>
-function myFunction(x) {
-    x.classList.toggle("change");
-}
-	//paste this code under head tag or in a seperate js file.
-	// Wait for window load
-	setTimeout(function() {
-    $('.fond').fadeOut('slow');
-}, 3010);
-</script>
-
-
 </body>
+<script type="text/javascript" src="https://rawgit.com/tsayen/dom-to-image/master/src/dom-to-image.js"></script>
+<script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script>
+<script type="text/javascript" src="http://canvg.github.io/canvg/rgbcolor.js"></script> 
+<script type="text/javascript" src="http://canvg.github.io/canvg/StackBlur.js"></script>
+<script type="text/javascript" src="http://canvg.github.io/canvg/canvg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+<script type="text/javascript" src="https://rawgit.com/dc-js/dc.js/master/web/js/d3.js"></script>
+<script type="text/javascript" src="https://rawgit.com/dc-js/dc.js/master/web/js/crossfilter.js"></script>
+<script type="text/javascript" src="https://rawgit.com/dc-js/dc.js/develop/dc.js"></script>
+<script type="text/javascript" src="https://rawgit.com/dc-js/dc.js/master/web/js/FileSaver.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.0/css/jquery.dataTables.min.css"/>
+<script src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
+<script src="https://rawgit.com/KidSysco/jquery-ui-month-picker/master/src/MonthPicker.js"></script>
+<script type="text/javascript" src="Energy.js"></script>
 </html>
-

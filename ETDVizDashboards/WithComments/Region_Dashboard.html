@@ -11,9 +11,10 @@
   <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
 <link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/font-awesome.min.css">
-  </head>
 <style>
     /*Styling for the chart*/
+.dc-chart g.state :hover {
+    fill-opacity: .1; }
 .dc-chart path.area {
 fill-opacity: 1;
 stroke: none;
@@ -51,6 +52,7 @@ overflow:visible;
 
 
 
+
 .main-menu {
 background:	#F5F5F5;
 border-top:1px solid #000000;
@@ -58,7 +60,7 @@ border-left:1px solid #000000;
 border-right:1px solid #000000;
 border-bottom:1px solid #000000;
 position:fixed;
-top:0;
+top:300px;
 bottom:0;
 height:187px;
 left:0;
@@ -229,13 +231,14 @@ a {
 .dropdown dt a {
   background-color: #fff;
   display: block;
-  padding: 8px 20px 5px 10px;
+  padding: 8px 20px 5px 2px;
   height: 38px;
   min-height: 10px;
   line-height: 8px;
   overflow: hidden;
   border: 1px solid black;
-  width: 200px;
+  width: 180px;
+  font-size: 13px;
 }
 
 
@@ -243,7 +246,7 @@ a {
 .multiSel span {
   cursor: pointer;
   display: inline-block;
-  padding: 5px 3px 2px 15px;
+  padding: 5px 3px 2px 45px;
   
 }
 
@@ -257,9 +260,9 @@ a {
   padding: 2px 15px 2px 5px;
   position: absolute;
   top: 2px;
-  width: 284px;
+  width: 264px;
   list-style: none;
-  height: 250px;
+  height: 200px;
   overflow: auto;
   font-size: 13px;
   z-index:99;
@@ -294,11 +297,10 @@ select{
     border-color: black;
 }
 .right1 { text-align: right; }
-    /*Styling for buttons*/
 button {
   background-color: #F5F5F5;
   width: 80px;
-height:39px;
+  height: 39px;
   border: 1px solid black;
   padding: 10px 0;
   text-align: top;
@@ -440,7 +442,7 @@ button:hover {background-color: #44C8F5}
   content: '';
   position: absolute;
   top: 50%;
-  left: 170px;
+  left: 155px;
   border-top: 5px solid black;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
@@ -449,7 +451,7 @@ button:hover {background-color: #44C8F5}
   content: '';
   position: absolute;
   top: 50%;
-  left: 170px;
+  left: 155px;
   border-top: 5px solid black;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
@@ -490,7 +492,7 @@ position:relative;
 display:table-cell;
 vertical-align:middle;
 width:190px;
-  font-family:Arial;
+  font-family: Arial;
 }
 
 .container1 li>a {
@@ -567,9 +569,10 @@ function myFunction(x) {
     $('.fond').fadeOut('slow');
 }, 3010);
 </script>
+  </head>
   <body>
   <!-- The following generates a loading animation that will end when all the charts finish loading.-->
-  <div align="center" class="fond"style:"width:100%; height:200%;">
+  <div align="center" class="fond" style="width:100%; height:200%;">
 <div id="fort"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png"></div>
   <div class="contener_general">
       <div class="contener_mixte"><div class="ballcolor ball_1">&nbsp;</div></div>
@@ -594,7 +597,7 @@ function myFunction(x) {
   <div class="bar3"></div>
 <ul class="dropdown-menu multi-level" style="display:none ">
       <li>
-                   <a href="https://fia.org/categories/exchange-volume/">
+                  <a href="https://fia.org/categories/exchange-volume/">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Home
@@ -693,7 +696,6 @@ function myFunction(x) {
 
 </div>
 </div>
-
 <div id = "123">
 <div class="clearfix"></div>
   </div>
@@ -701,15 +703,15 @@ function myFunction(x) {
 
   
 <div class="clearfix"></div>
-    <!-- The following is the Group table. -->
-<h1 style= "padding-left: 0px;">September Highlights by Group</h1>
+    <!-- The following is the Region table. -->
+<h1 style= "padding-left: 0px;">September Highlights by Region</h1>
     <div class="row">
     <div class="col-xs-12">
 <div style="clear: both; margin: 0px; float: left; padding-top:10px;">
       <table class="table table-bordered table-striped table-hover" id="table" cellspacing="0" width="1100px">
         <thead class="thead-inverse">
 	  <tr class="header" center style="background-color: #44C8F5;">
-            <th rowspan="2">Group</th>
+            <th rowspan="2">Region</th>
             <th style="background-color: #44C8F5; text-align: center;" colspan="3">Volume Overall</th>
             <th style="background-color: #44C8F5; text-align: center;" colspan="3">Open Interest Overall</th>
           </tr>
@@ -727,13 +729,14 @@ function myFunction(x) {
     </div>
 </div>
 </div>
-<h1 style= "padding-left: 0px;padding-top:30px;">Historical Trends by Group</h1>
-<div id="download-type1" style="float:left; width:1200px; margin-left: 0px;padding-top:10px">
-<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown">
-    <!-- The following is the filter for Group. Multiple elements can be selected and filtered using the Apply button.-->
+<h1 style= "padding-left: 0px;padding-top:30px;">Historical Trends by Region</h1>
+<!-- The following is the filter for Region. Multiple elements can be selected and filtered using the Apply button.-->
+<div id="download-type1" style="float:left; width:1200px; margin-left: 0px;padding-top:10px;">
+<div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown"> 
+  
     <dt>
     <a>
-      <span class="caret">Select Group</span>    
+      <span class="caret">Select Region</span>    
       <p class="multiSel"></p>  
     </a>
     </dt>
@@ -751,7 +754,7 @@ function myFunction(x) {
       <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
       <div><label><input type=radio name="operation1" value="open">&nbsp;Open Interest</label></div>
 </div> 
-<div style="display:inline-block; position:absolute; padding-left: 10px;"><button id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
+<div style="display:inline-block; position:absolute; padding-left: 10px;"><button  id="render" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button></div>
 <div style="display:inline-block; padding-left: 570px;">
 </div>
 <div style="display:inline-block; position:absolute; padding-left: 0px;">
@@ -759,8 +762,9 @@ function myFunction(x) {
 </div>     	
 </div>
 
-    <!-- The following is the Group chart.-->
-    <div id="test"style= "padding-left: 0px; padding-top: 60px;"></div>
+
+    <!-- The following is the Region chart.-->
+    <div id="test"style= "padding-left: 0px;padding-top: 60px;"></div>
 
 </div>
 
@@ -772,7 +776,8 @@ function myFunction(x) {
 <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.css"/>
 <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.js"></script>
-<script src="group1.js"></script>
+<script src="Region.js"></script>
+
 
 
   </body>

@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/font-awesome.min.css">
 <style>
 
-
+    /*Styling for the table*/
 table.dataTable tr.odd { background-color: #A8DEF5; }
 table.dataTable tr.even { background-color: white; }
 thead tr {background-color: #44C8F5;}
@@ -98,7 +98,7 @@ body {
 margin: 0 auto;
 
 }
-
+/*Styling for drop-down filters*/
 .dropdown {
   position: relative;
   
@@ -436,6 +436,7 @@ select{
     border-color: black;
 }
 .right1 { text-align: right; }
+/*Styling for buttons*/
 .bu20 {
     border: 1px solid grey;
     background-color: #f6f6f6;
@@ -510,6 +511,7 @@ z-index: 999;
 	.btn1:hover{
 		background: rgba(0, 0, 0,.4) url(https://rawgit.com/tttp/iw-fr/master/img/reset.svg) center 7% no-repeat;
 	}
+/*Styling for the loading animation*/
 .fond{background-color: white;position:absolute;padding-top:400px;top:0;left:0; right:0;bottom:0;z-index:1999;  width: 100%;
   height: 500%;}
 
@@ -610,7 +612,7 @@ z-index: 999;
   100%{transform:rotate(720deg) scale(1);}
 }
 
-}
+/*Styling for the navigation bar*/
 
 .fa-2x {
 font-size: 2em;
@@ -813,7 +815,7 @@ height: 100%;
 .caret:hover:before {
   border-top-color: #222;
 }
-
+/*Styling for the navigation drop-down*/
 .container1 ul { 
   position: absolute;
   top: 54px;
@@ -827,6 +829,7 @@ border-bottom:1px solid #000000	;
 
   box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
+
 .container1 ul li { font-size: 0.9em; }
 
 .container1 li:hover ul {
@@ -934,6 +937,7 @@ function myFunction(x) {
 
 </head>
 <body>
+<!-- The following generates a loading animation that will end when all the charts finish loading.-->
 <div align="center" class="fond" style:"width:100%; height:200%;">
 <div id="fort"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png"></div>
   <div class="contener_general">
@@ -951,6 +955,7 @@ function myFunction(x) {
 
 <div id="scrollable" class= "scrollable" style="padding-left:0px;">
 <div>
+<!-- The following div elements generate the FIA logo and navigation to other dashboards.-->
 <div class="navbar-left" style=" vertical-align: top;display:inline-block;padding-left:0px;"><a  href="http://www.fia.org/" style="border-bottom:none; margin-top:0px;"><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/FIA_ETDTRACKER_SM.png" style="max-height:60px;margin-top:0px;"></a></div>
 <div style="display:inline-block; vertical-align: top; padding-left:700px; padding-top:13px; position: relative">
 <div id="654" class="container1">
@@ -1061,6 +1066,7 @@ function myFunction(x) {
 <h1 style="padding-left:0px;">September Contracts Table</h1>
 <div class="clearfix"></div>
 <div style="width: 1200px; padding-top: 10px;">
+<!-- The following is the filter for Exchange, Region, Group, and Contract. Multiple elements can be selected and filtered using the Apply button.-->
 <div style="display:inline-block; vertical-align: top; padding-left: 0px;" class="dropdown"> 
   
     <dt>
@@ -1093,6 +1099,7 @@ function myFunction(x) {
 <div style="display:inline-block; position:absolute; padding-left: 0px;">
 <button id="perform11" style="{background-color: #f6f6f6;border: 1px solid black;}">Apply</button>
 </div>
+<!-- The following is the filter for Volume and OI. It will re-render all charts based on Volume and OI once the Apply button is clicked.-->
 <div style="margin-left: 150px; display:inline-block;">
 	<div id="download-type1" style="clear: both;">
       <div><label><input type=radio name="operation1" value="volume" checked="true">&nbsp;Volume</label></div>
@@ -1145,7 +1152,7 @@ function myFunction(x) {
 
   
 <div class="clearfix"></div>
-  <!-- not sure why all these styles necessary, not the point of this -->
+  <!-- The following is the contracts ranking table. -->
     <div style="float:left; width:1300px;">
     <div style="float:left; width:1300px;">
 <div style="clear: both; margin: 0px; float:left; padding-top:30px;">
@@ -1157,6 +1164,7 @@ function myFunction(x) {
 
     </div>
 <div style="float:left; padding-left:25px;padding-top:100px;">
+    <!-- The following is the reset all filters button.-->
     <button id="render1" class="bu20" ><img src="https://rawgit.com/ovik-chakraborty/Tutorial/master/reset.svg"><br><br>Reset All</br></br></button>
     <!--<div style="width:8px; height:8px; margin: 8px;display:inline-block;"></div>
     <button class="bu20" onclick="exportToData();"><img src="https://fia.org/sites/default/files/SEFTic_insert_chart_black_24dp_2x.png">Download CSV</button>
@@ -1180,7 +1188,7 @@ function myFunction(x) {
 <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.css"/>
 <script src="https://rawgit.com/ovik-chakraborty/Tutorial/master/Updated_files_ETD/jquery.dataTables.min.js"></script>
-<script src="contract_ranking1.js"></script>
+<script src="Contract_Ranking.js"></script>
 
 </body>
 </html>
